@@ -1,0 +1,870 @@
+/* ------------------------------------------------------
+   CircularPack – sacose-reutilizabile.css
+   Stiluri SPECIFICE pentru pagina sacose-reutilizabile.html
+------------------------------------------------------- */
+
+/* ===== Accente de culoare pe text ===== */
+
+.highlight-green{
+  background: linear-gradient(90deg,#009c3b,#007a2f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 650;
+}
+
+.highlight-gold{
+  background: linear-gradient(90deg,#d59c2b,#f1c564);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 650;
+}
+
+/* Kicker mic deasupra titlurilor de secțiune */
+
+.section-kicker{
+  font-size: .9rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #6b7280;
+  font-weight: 650;
+  margin: 0 0 .35rem;
+}
+
+/* Bullets verzi reutilizabile */
+
+.list-check{
+  list-style: none;
+  padding: 0;
+  margin: .5rem 0 0;
+}
+.list-check li{
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 1.02rem;
+}
+.list-check li::before{
+  content:"";
+  position:absolute;
+  left:0; top:.48rem;
+  width:.55rem; height:.55rem;
+  border-radius:999px;
+  background: radial-gradient(circle at 30% 0%,#22c55e,#15803d);
+  box-shadow: 0 0 0 3px rgba(34,197,94,.18);
+}
+
+/* ======================================================
+   HERO SACOȘE – text stânga, slider 1:1 dreapta
+   ====================================================== */
+
+.hero.hero-sacose{
+  padding: clamp(2rem, 4vw, 4rem) 0;
+}
+
+.hero-sacose-inner{
+  display:grid;
+  grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
+  grid-template-areas:
+    "top   media"
+    "bottom media";
+  column-gap: clamp(1.8rem, 4vw, 3rem);
+  row-gap: 0.12rem;              /* trage butoanele mai sus */
+  align-items:flex-start;
+}
+
+.hero-sacose-top{
+  grid-area: top;
+}
+.hero-sacose-media{
+  grid-area: media;
+}
+.hero-sacose-bottom{
+  grid-area: bottom;
+  align-self:flex-start;
+}
+
+/* --- TEXT HERO --- */
+
+.hero-sacose-text{
+  padding:0;
+  background:none;
+  border-radius:0;
+  box-shadow:none;
+  backdrop-filter:none;
+}
+
+.hero-sacose-text .eyebrow{
+  font-size:0.9rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  margin-bottom:0.9rem;
+  color:#6b7280;
+}
+
+.hero-sacose-text .hero-title{
+  font-size:clamp(2rem, 2.8vw, 2.4rem);
+  line-height:1.2;
+  margin-bottom:0.7rem;
+  color:#0b1320;
+  font-weight:750;
+}
+
+.hero-sacose-text .lead{
+  max-width:38rem;
+  margin-bottom:0.05rem;         /* foarte aproape de butoane */
+}
+
+/* --- BUTOANE + BULLETS SUB ELE --- */
+
+.hero-sacose-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.9rem;
+  margin:0 0 0.9rem;             /* scoatem spațiul de sus */
+}
+
+/* butoanele ușor mai în stânga pe desktop */
+@media (min-width:901px){
+  .hero-sacose-actions{
+    margin-left:-2px;
+  }
+}
+
+/* card frumos pentru cele două bullet-uri */
+
+.hero-sacose-list{
+  margin-top:0.6rem;
+  padding:0.6rem 0.9rem 0.65rem;
+  max-width:36rem;
+  border-radius:14px;
+  background:
+    radial-gradient(circle at 0 0, rgba(34,197,94,0.08), transparent 55%),
+    rgba(255,255,255,0.97);
+  border:1px solid rgba(209,213,219,0.9);
+  box-shadow:
+    0 10px 24px rgba(15,23,42,0.06),
+    0 2px 6px rgba(15,23,42,0.04);
+}
+
+.hero-sacose-list li{
+  padding-left:1.3rem;
+  font-size:0.96rem;
+  color:#020617;
+}
+
+.hero-sacose-list li + li{
+  margin-top:0.2rem;
+}
+
+.hero-sacose-list li::before{
+  left:0.25rem;
+  top:0.55rem;
+  width:0.42rem;
+  height:0.42rem;
+  box-shadow:0 0 0 2px rgba(34,197,94,0.20);
+}
+
+/* --- IMAGINE 1:1 + METRICS SUB IMAGINE --- */
+
+.hero-sacose-media{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  margin-top:0.6rem; /* imaginea puțin mai jos */
+}
+
+.hero-sacose-frame{
+  position:relative;
+  width:100%;
+  max-width:480px;
+  aspect-ratio:1 / 1;
+  border-radius:28px;
+  overflow:hidden;
+  background:transparent;
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.14),
+    0 8px 20px rgba(0,0,0,0.08);
+}
+
+.hero-sacose-frame img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity .8s ease-in-out;
+  border-radius:28px;
+}
+
+.hero-sacose-frame img.active{
+  opacity:1;
+}
+
+/* METRICS SUB IMAGINE – 2 sus + 1 lat jos */
+
+.hero-sacose-metrics{
+  margin-top:0.85rem;
+  width:100%;
+  max-width:480px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-areas:
+    "m1 m2"
+    "m3 m3";
+  gap:0.7rem;
+}
+
+.hero-sacose-metrics .metric:nth-child(1){
+  grid-area:m1;
+}
+.hero-sacose-metrics .metric:nth-child(2){
+  grid-area:m2;
+}
+.hero-sacose-metrics .metric:nth-child(3){
+  grid-area:m3;
+}
+
+/* cardurile KPI */
+
+.metric{
+  min-width:0;
+  padding:0.7rem 0.9rem;
+  border-radius:14px;
+  background:
+    radial-gradient(circle at 0 0, rgba(34,197,94,0.10), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(213,156,43,0.12), transparent 60%),
+    rgba(255,255,255,0.97);
+  border:1px solid rgba(209,213,219,0.9);
+  box-shadow:
+    0 12px 26px rgba(15,23,42,0.06),
+    0 2px 6px rgba(15,23,42,0.03);
+}
+
+.metric-label{
+  display:block;
+  font-size:0.78rem;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:#4b5563;
+  margin-bottom:0.05rem;
+}
+
+.metric-value{
+  font-size:0.96rem;
+  font-weight:700;
+  color:#0f172a;
+}
+
+.metric-note{
+  display:block;
+  font-size:0.82rem;
+  color:#4b5563;
+}
+
+/* Panel alb pentru text HERO pe mobil */
+
+@media (max-width: 900px){
+  .hero-sacose-text{
+    position: relative;
+  }
+
+  .hero-sacose-text::before{
+    content: "";
+    position: absolute;
+    inset: -0.8rem;
+    background: linear-gradient(90deg, rgba(255,255,255,0.97), rgba(255,255,255,0.90));
+    border-radius: 16px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+    backdrop-filter: blur(4px);
+    z-index: -1;
+  }
+}
+
+/* Mobil – text → imagine+metrics → butoane+bullets */
+
+@media (max-width:900px){
+  .hero-sacose-inner{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "top"
+      "media"
+      "bottom";
+  }
+
+  .hero-sacose-media{
+    align-items:flex-start;
+    margin-top:1.2rem;
+  }
+
+  .hero-sacose-bottom{
+    margin-top:1.4rem;
+  }
+
+  .hero-sacose-metrics{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:
+      "m1"
+      "m2"
+      "m3";
+  }
+}
+
+/* Desktop – imagine aliniată sus cu textul */
+
+@media (min-width:901px){
+  .hero-sacose-media{
+    align-self:flex-start;
+  }
+}
+
+/* ================== CONTEXT SACOȘE – 2 coloane ================== */
+
+.section-context-sacose .container > p{
+  max-width:40rem;
+}
+
+.context-sacose-layout{
+  margin-top:1rem;
+  display:grid;
+  grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
+  gap:1.6rem;
+  align-items:flex-start;
+}
+
+/* card stânga */
+
+.context-sacose-text{
+  position:relative;
+  border-radius:20px;
+  padding:1.35rem 1.5rem 1.5rem;
+  background:
+    radial-gradient(circle at 0 0, rgba(34,197,94,0.12), transparent 60%),
+    rgba(255,255,255,0.96);
+  box-shadow:
+    0 16px 32px rgba(15,23,42,0.08),
+    0 2px 8px rgba(15,23,42,0.04);
+  border:1px solid rgba(209,213,219,0.9);
+}
+
+.section-context-sacose h2{
+  position:relative;
+  padding-bottom:0.4rem;
+  margin-bottom:0.5rem;
+}
+
+.section-context-sacose h2::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:52px;
+  height:2px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#009c3b,#d59c2b);
+}
+
+.section-context-sacose .muted{
+  color:#111827;
+}
+
+/* bullets */
+
+.context-bullets{
+  list-style:none;
+  padding:0;
+  margin:1rem 0 0;
+  display:flex;
+  flex-direction:column;
+  gap:0.55rem;
+}
+
+.context-bullets li{
+  position:relative;
+  padding-left:1.4rem;
+  font-size:0.96rem;
+  color:#020617;
+}
+
+.context-bullets li::before{
+  content:"";
+  position:absolute;
+  left:0.25rem;
+  top:0.6rem;
+  width:6px;
+  height:6px;
+  border-radius:999px;
+  background:radial-gradient(circle at 30% 0%, #22c55e, #15803d);
+}
+
+/* card dreapta */
+
+.context-sacose-aside{
+  position:relative;
+  border-radius:20px;
+  padding:1.35rem 1.5rem 1.5rem 1.7rem;
+  background:
+    radial-gradient(circle at 0 0, rgba(34,197,94,0.10), transparent 65%),
+    radial-gradient(circle at 100% 100%, rgba(213,156,43,0.10), transparent 60%),
+    #ffffff;
+  border:1px solid rgba(209,213,219,0.9);
+  box-shadow:
+    0 16px 32px rgba(15,23,42,0.1),
+    0 2px 8px rgba(15,23,42,0.04);
+  overflow:hidden;
+}
+
+.context-sacose-aside::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:linear-gradient(180deg,#22c55e,#d59c2b);
+  border-radius:20px 0 0 20px;
+}
+
+.context-sacose-aside h3{
+  font-size:1.02rem;
+  margin:0 0 0.6rem;
+  color:#020617;
+}
+
+.context-aside-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:0.45rem;
+}
+
+.context-aside-list li{
+  font-size:0.95rem;
+  color:#111827;
+}
+
+@media (max-width:900px){
+  .context-sacose-layout{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+/* ================== TIPURI DE SACOȘE ================== */
+
+.section-tipuri-sacose .container > p{
+  max-width:46rem;
+}
+
+.tipuri-sacose-grid{
+  margin-top:1.8rem;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1.1rem;
+}
+
+.tip-sacosa{
+  position:relative;
+  border-radius:20px;
+  padding:1.35rem 1.25rem 1.35rem;
+  background:
+    radial-gradient(circle at 0 0, rgba(34,197,94,0.10), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(213,156,43,0.08), transparent 60%),
+    #ffffff;
+  border:1px solid rgba(209,213,219,0.95);
+  box-shadow:
+    0 18px 32px rgba(15,23,42,0.08),
+    0 2px 8px rgba(15,23,42,0.04);
+}
+
+/* icon „badge” sus */
+
+.ts-icon{
+  width:28px;
+  height:28px;
+  border-radius:999px;
+  margin-bottom:0.75rem;
+  position:relative;
+  box-shadow:
+    0 3px 8px rgba(15,23,42,0.25),
+    0 0 0 4px rgba(248,250,252,0.95);
+}
+
+.ts-icon::before{
+  content:"";
+  position:absolute;
+  inset:5px;
+  border-radius:inherit;
+  background:#f9fafb;
+}
+
+.ts-icon::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:9px;
+  height:9px;
+  border-radius:999px;
+  box-shadow:0 0 0 2px rgba(15,23,42,0.06);
+}
+
+.ts-icon-intern::after{
+  background:linear-gradient(145deg,#15803d,#22c55e);
+}
+.ts-icon-retail::after{
+  background:linear-gradient(145deg,#d59c2b,#facc15);
+}
+.ts-icon-click::after{
+  background:linear-gradient(145deg,#0ea5e9,#22c55e);
+}
+
+.tip-sacosa-body h3{
+  font-size:1.04rem;
+  margin:0 0 0.3rem;
+  color:#020617;
+  font-weight:650;
+}
+
+.tip-sacosa-body p{
+  font-size:0.95rem;
+  color:#111827;
+  line-height:1.55;
+}
+
+/* tag-uri */
+
+.tip-sacosa .inline-tags{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.35rem;
+}
+
+.tip-sacosa .inline-tags li{
+  padding:0.22rem 0.7rem;
+  border-radius:999px;
+  font-size:0.78rem;
+  font-weight:600;
+  background:rgba(248,250,252,0.98);
+  border:1px solid rgba(209,213,219,0.9);
+}
+
+@media (max-width:1024px){
+  .tipuri-sacose-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media (max-width:700px){
+  .tipuri-sacose-grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+/* ================== FLOW SACOȘE – 4 pași ================== */
+
+.section-flow-sacose .container > h2{
+  max-width:40rem;
+  margin-bottom:1rem;
+}
+
+.flow-sacose-stepper{
+  position:relative;
+  margin-top:1.6rem;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:1.2rem;
+}
+
+.flow-sacose-line{
+  position:absolute;
+  left:0;
+  right:0;
+  top:1.55rem;
+  height:2px;
+  background:linear-gradient(90deg,rgba(209,213,219,0.7),rgba(209,213,219,0.3));
+  z-index:0;
+}
+
+.flow-sacose-step{
+  position:relative;
+  z-index:1;
+  padding:0.95rem 1rem 1rem 1.8rem;
+  border-radius:16px;
+  border:1px solid rgba(209,213,219,0.9);
+  box-shadow:
+    0 14px 30px rgba(15,23,42,0.08),
+    0 2px 8px rgba(15,23,42,0.04);
+}
+
+/* alternanță culori carduri */
+
+.flow-sacose-step:nth-child(1),
+.flow-sacose-step:nth-child(3){
+  background:linear-gradient(135deg,
+    rgba(240,253,244,0.96) 0%,
+    rgba(224,242,254,0.96) 100%
+  );
+}
+
+.flow-sacose-step:nth-child(2),
+.flow-sacose-step:nth-child(4){
+  background:linear-gradient(135deg,
+    rgba(255,251,235,0.96) 0%,
+    rgba(254,242,242,0.96) 100%
+  );
+}
+
+.flow-sacose-dot{
+  width:28px;
+  height:28px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:0.45rem;
+  background:radial-gradient(circle at 30% 0%, #d59c2b, #15803d);
+  color:#ffffff;
+  font-size:0.82rem;
+  font-weight:650;
+  box-shadow:0 10px 22px rgba(15,23,42,0.35);
+}
+
+.flow-sacose-step h3{
+  font-size:1.02rem;
+  margin-bottom:0.3rem;
+  color:#020617;
+}
+
+.flow-sacose-step p{
+  font-size:0.95rem;
+  color:#111827;
+  line-height:1.55;
+}
+
+@media (max-width:900px){
+  .flow-sacose-stepper{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .flow-sacose-line{
+    display:none;
+  }
+}
+
+/* ================== SPEC SACOȘE – 2x2 carduri ================== */
+
+.section-spec-sacose .container > h2{
+  margin-bottom:0.8rem;
+}
+
+.spec-sacose-grid{
+  margin-top:1.4rem;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1.1rem;
+}
+
+.spec-sacosa-card{
+  position:relative;
+  border-radius:20px;
+  padding:1.3rem 1.3rem 1.2rem 1.6rem;
+  background:
+    radial-gradient(circle at 0 0, rgba(34,197,94,0.10), transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(213,156,43,0.08), transparent 60%),
+    #ffffff;
+  border:1px solid rgba(209,213,219,0.95);
+  box-shadow:
+    0 16px 30px rgba(15,23,42,0.08),
+    0 2px 8px rgba(15,23,42,0.03);
+}
+
+/* card-icon din HTML – nu îl folosim vizual, doar îl ascundem */
+.spec-sacosa-card .card-icon{
+  display:none;
+}
+
+/* indicator premium pe titlu, NU intră în text */
+
+.spec-sacosa-card h3{
+  position:relative;
+  padding-left:1.4rem;
+  font-size:1.02rem;
+  margin:0 0 0.35rem;
+  color:#020617;
+  font-weight:650;
+}
+
+.spec-sacosa-card h3::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0.32rem;
+  width:11px;
+  height:11px;
+  border-radius:999px;
+  box-shadow:
+    0 2px 6px rgba(15,23,42,0.25),
+    0 0 0 3px rgba(248,250,252,0.96);
+}
+
+/* culori pe fiecare card */
+
+.spec-sacosa-card:nth-child(1) h3::before{
+  background:linear-gradient(135deg,#0fba65,#067a41);
+}
+.spec-sacosa-card:nth-child(2) h3::before{
+  background:linear-gradient(135deg,#eab308,#f97316);
+}
+.spec-sacosa-card:nth-child(3) h3::before{
+  background:linear-gradient(135deg,#3b82f6,#0ea5e9);
+}
+.spec-sacosa-card:nth-child(4) h3::before{
+  background:linear-gradient(135deg,#8b5cf6,#4c1d95);
+}
+
+.spec-sacosa-card p{
+  font-size:0.95rem;
+  color:#020617;
+  line-height:1.6;
+  margin:0;
+}
+
+.spec-sacose-note{
+  margin-top:1.1rem;
+  font-size:0.94rem;
+  color:#4b5563;
+  padding:0.8rem 0.9rem;
+  border-radius:14px;
+  border:1px dashed rgba(148,163,184,0.8);
+  background:#ffffff;
+}
+
+@media (max-width:900px){
+  .spec-sacose-grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+/* ================== CTA FINAL SACOȘE ================== */
+
+.section-cta-sacose{
+  background:#ffffff;
+}
+
+.cta-sacose-inner{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1.5rem;
+  align-items:center;
+  justify-content:space-between;
+  border-radius:24px;
+  padding:1.9rem 1.9rem;
+  background:
+    radial-gradient(circle at 0 0, rgba(34,197,94,0.18), transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(213,156,43,0.18), transparent 60%),
+    #ffffff;
+  box-shadow:0 24px 48px rgba(15,23,42,0.18);
+  border:1px solid rgba(229,231,235,0.95);
+}
+
+.cta-sacose-text{
+  max-width:100%;
+}
+
+.cta-sacose-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.9rem;
+}
+
+@media (max-width:640px){
+  .cta-sacose-inner{
+    padding:1.4rem 1.3rem;
+  }
+
+  .cta-sacose-actions{
+    flex-direction:column;
+    align-items:stretch;
+  }
+}
+/* ===== HERO SACOȘE – mută butoanele mai sus DOAR pe desktop ===== */
+@media (min-width: 901px){
+
+  /* ridică butoanele */
+  .hero-sacose-actions{
+    margin-top: -6rem !important;   /* poți ajusta: -0.25rem / -0.45rem */
+  }
+
+  /* micșorează distanța dintre text și butoane */
+  .hero-sacose-text .lead{
+    margin-bottom: 0 !important;
+  }
+
+  /* reduce spațiul dintre rândurile gridului pe desktop */
+  .hero-sacose-inner{
+    row-gap: 0rem !important;
+  }
+}
+/* ============================
+   TEXT MAI GROS PENTRU BULLET-URI
+   ============================ */
+
+/* bullet-urile din stânga (secțiunea "De ce sacoșe reutilizabile") */
+.context-bullets li{
+  font-size: 1rem !important;
+  font-weight: 520 !important;     /* mai gros, același vibe ca la paleți/rame */
+  color: #0f172a !important;
+}
+
+/* bullet-urile din cardul din dreapta (Unde le vedem cel mai des?) */
+.context-aside-list li{
+  font-size: 1rem !important;
+  font-weight: 520 !important;
+  color: #0f172a !important;
+}
+
+/* bullet-ul verde – îl facem și pe el un pic mai vizibil */
+.context-bullets li::before,
+.context-aside-list li::before{
+  width: 7px !important;
+  height: 7px !important;
+  top: 0.55rem !important;
+  background: radial-gradient(circle at 30% 0%, #22c55e, #15803d) !important;
+  box-shadow: 0 0 0 2px rgba(34,197,94,0.22) !important;
+}
+/* ============================
+   BULLET-URI HERO – text mai gros
+   ============================ */
+
+.hero-sacose-list li{
+  font-size: 1rem !important;
+  font-weight: 540 !important;
+  color: #0f172a !important;
+  line-height: 1.45 !important;
+}
+
+/* bullet-ul verde – mai mare și mai definit */
+.hero-sacose-list li::before{
+  width: 7px !important;
+  height: 7px !important;
+  top: 0.55rem !important;
+  background: radial-gradient(circle at 30% 0%, #22c55e, #15803d) !important;
+  box-shadow: 0 0 0 2px rgba(34,197,94,0.22) !important;
+}
+/* ===== FLOW SACOȘE – aplică stilul cardului 2 pe cardul 4 (fără efect pe cardul 3) ===== */
+
+.flow-sacose-stepper > article:nth-of-type(4){
+  background: linear-gradient(135deg,
+    rgba(224,242,254,0.96) 0%,
+    rgba(240,253,244,0.96) 100%
+  ) !important;
+  border: 1px solid rgba(209,213,219,0.9) !important;
+  box-shadow:
+    0 14px 30px rgba(15,23,42,0.08),
+    0 2px 8px rgba(15,23,42,0.04) !important;
+}

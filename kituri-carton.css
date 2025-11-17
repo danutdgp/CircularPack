@@ -1,0 +1,900 @@
+/* ------------------------------------------------------
+   CircularPack – kituri-carton.css
+   Stiluri SPECIFICE pentru pagina kituri-carton.html
+------------------------------------------------------- */
+
+/* Accente de culoare pe text */
+
+.highlight-green{
+  background: linear-gradient(90deg,#009c3b,#007a2f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 650;
+}
+
+.highlight-gold{
+  background: linear-gradient(90deg,#d59c2b,#f1c564);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 650;
+}
+
+/* Kicker mic deasupra titlurilor de secțiune */
+
+.section-kicker{
+  font-size: .9rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #6b7280;
+  font-weight: 650;
+  margin: 0 0 .35rem;
+}
+
+/* ===== HERO KITURI CARTON – TEXT STÂNGA, IMAGINE DREAPTA,
+   CARDURI SUB IMAGINE, BUTOANE SUB TEXT ===== */
+
+.hero.hero-kituri-carton{
+  padding: clamp(2rem, 4vw, 4rem) 0;
+}
+
+/* 4 zone: top (text), media (imagine), buttons (butoane), metrics (carduri) */
+.hero-kituri-inner{
+  display: grid;
+  grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
+  grid-template-areas:
+    "top     media"
+    "buttons metrics";
+  column-gap: clamp(1.8rem, 4vw, 3rem);
+  row-gap: 1.2rem;
+  align-items: flex-start;
+}
+
+.hero-kituri-text{
+  grid-area: top;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-kituri-media{
+  grid-area: media;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.hero-kituri-actions{
+  grid-area: buttons;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.hero-kituri-metrics{
+  grid-area: metrics;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 0;           /* anulăm marginile vechi */
+}
+
+/* sliderul rămâne premium 1:1 */
+.hero-kituri-slider{
+  position:relative;
+  width:100%;
+  max-width:480px;
+  aspect-ratio: 1 / 1;
+  border-radius:28px;
+  overflow:hidden;
+  background:transparent;
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.14),
+    0 8px 20px rgba(0,0,0,0.08);
+}
+
+.hero-kituri-slider img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity .8s ease-in-out;
+  border-radius:28px;
+}
+
+.hero-kituri-slider img.active{
+  opacity:1;
+}
+
+/* Cardurile metrics – păstrăm stilul tău */
+.metric{
+  min-width: 160px;
+  padding:0.55rem 0.75rem;
+  border-radius:12px;
+  background:linear-gradient(135deg,#fefce8,#ecfdf3);
+  border:1px solid rgba(234,179,8,0.5);
+}
+
+.metric-label{
+  display:block;
+  font-size:0.8rem;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:#854d0e;
+  margin-bottom:0.1rem;
+}
+
+.metric-value{
+  font-size:0.95rem;
+  font-weight:650;
+  color:#0f172a;
+}
+
+/* Panel alb pentru text pe mobil – îl păstrăm */
+@media (max-width: 900px){
+  .hero-kituri-text{
+    position: relative;
+  }
+
+  .hero-kituri-text::before{
+    content: "";
+    position: absolute;
+    inset: -0.8rem;
+    background: linear-gradient(90deg, rgba(255,255,255,0.97), rgba(255,255,255,0.90));
+    border-radius: 16px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+    backdrop-filter: blur(4px);
+    z-index: -1;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+/* Mobil: text → imagine → carduri → butoane (cum ai zis tu) */
+@media (max-width: 900px){
+  .hero-kituri-inner{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "top"
+      "media"
+      "metrics"
+      "buttons";
+    row-gap: 1.4rem;
+  }
+
+  .hero-kituri-media{
+    align-items: center;
+  }
+
+  .hero-kituri-slider{
+    max-width: 420px;
+  }
+
+  .hero-kituri-metrics{
+    flex-direction: column;
+  }
+
+  .hero-kituri-actions{
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+
+/* ================== TIPURI DE KITURI – CARDURI CU BANDĂ ================== */
+
+.section-tipuri-kituri .container > p{
+  max-width:46rem;
+}
+
+.tipuri-grid{
+  margin-top:1.8rem;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:1.1rem;
+}
+
+/* CARD PREMIUM CU GRADIENT SUBTIL */
+.tip-kit{
+  position:relative;
+  display:flex;
+  border-radius:18px;
+  overflow:hidden;
+
+  background: linear-gradient(
+    135deg,
+    rgba(0,156,59,0.05) 0%,
+    rgba(255,255,255,0.90) 45%,
+    rgba(213,156,43,0.06) 100%
+  );
+
+  box-shadow:
+    0 14px 28px rgba(15,23,42,0.10),
+    0 3px 8px rgba(15,23,42,0.04);
+  
+  border:1px solid rgba(210,214,220,0.55);
+}
+
+
+.tip-stripe{
+  width:6px;
+  flex-shrink:0;
+}
+
+.stripe-gold{
+  background:linear-gradient(180deg,#facc15,#f97316);
+}
+.stripe-green{
+  background:linear-gradient(180deg,#22c55e,#15803d);
+}
+.stripe-mix{
+  background:linear-gradient(180deg,#22c55e,#facc15);
+}
+.stripe-neutral{
+  background:linear-gradient(180deg,#e5e7eb,#d4d4d8);
+}
+
+.tip-content{
+  padding:1.1rem 1.2rem;
+}
+
+.tip-content h3{
+  font-size:1.1rem;
+  margin-bottom:0.35rem;
+}
+
+.tip-content p{
+  font-size:0.98rem;
+  color:#111827;
+}
+
+.inline-tags{
+  list-style:none;
+  padding:0;
+  margin:0.6rem 0 0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.3rem;
+}
+
+.inline-tags li{
+  padding:0.2rem 0.6rem;
+  border-radius:999px;
+  font-size:0.78rem;
+  font-weight:600;
+  background:rgba(15,23,42,0.03);
+  border:1px solid rgba(148,163,184,0.6);
+}
+
+/* ================== TIMELINE CONFIGURARE ================== */
+
+.section-flow-kituri .container > p{
+  max-width:42rem;
+}
+
+/* timeline cât coloana de text */
+.timeline{
+  position:relative;
+  margin-top:1.9rem;
+  max-width:46rem;
+  padding-left:1.6rem;
+  border-left:2px solid rgba(148,163,184,0.55);
+}
+
+.timeline-step{
+  position:relative;
+  padding-left:0.8rem;
+  padding-bottom:1.3rem;
+}
+
+.timeline-step:last-child{
+  padding-bottom:0;
+}
+
+.timeline-badge{
+  position:absolute;
+  left:-1.55rem;
+  top:0.15rem;
+  width:26px;
+  height:26px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle at 30% 0%, #d59c2b, #15803d);
+  color:#ffffff;
+  font-size:0.82rem;
+  font-weight:650;
+  box-shadow:0 8px 18px rgba(15,23,42,0.25);
+}
+
+.timeline-body h3{
+  font-size:1.05rem;
+  margin-bottom:0.35rem;
+}
+
+.timeline-body p{
+  font-size:0.98rem;
+  color:#111827;
+}
+
+/* pe mobil îl lăsăm full-width */
+@media (max-width:768px){
+  .timeline{
+    max-width:100%;
+  }
+}
+
+/* ================== SPECIFICAȚII & MICRO-FACTS ================== */
+
+.section-spec-kituri .container > h2{
+  margin-bottom:0.7rem;
+}
+
+.spec-grid{
+  margin-top:1.4rem;
+  display:grid;
+  grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+  gap:1.3rem;
+  align-items:flex-start;
+}
+
+.spec-main-card{
+  border-radius:22px;
+  padding:1.6rem 1.5rem;
+  background:linear-gradient(135deg,#f1f5f9 0%,#ffffff 55%,#fff7e6 100%);
+  box-shadow:0 18px 34px rgba(15,23,42,0.12);
+  border:1px solid rgba(148,163,184,0.6);
+}
+
+.spec-main-card h3{
+  font-size:1.08rem;
+  margin-bottom:0.9rem;
+}
+
+.spec-table{
+  margin:0;
+}
+
+.spec-row{
+  display:grid;
+  grid-template-columns:1.1fr 1.7fr;
+  gap:0.7rem;
+  padding:0.6rem 0;
+  border-bottom:1px dashed rgba(148,163,184,0.7);
+}
+
+.spec-row:last-child{
+  border-bottom:none;
+}
+
+.spec-row dt{
+  font-size:0.95rem;
+  font-weight:650;
+  color:#0b1120;
+}
+
+.spec-row dd{
+  margin:0;
+  font-size:0.95rem;
+  font-weight:500;
+  color:#111827;
+}
+
+/* side column */
+
+.spec-side h3{
+  font-size:1.02rem;
+  margin-bottom:0.6rem;
+}
+
+.spec-badges{
+  list-style:none;
+  padding:0;
+  margin:0 0 0.9rem;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:0.55rem;
+}
+
+.spec-badges li{
+  font-size:0.9rem;
+  position:relative;
+  padding:0.55rem 0.7rem 0.55rem 1.3rem;
+  border-radius:12px;
+  background:rgba(249,250,251,0.96);
+  border:1px solid rgba(209,213,219,0.9);
+  box-shadow:0 6px 14px rgba(15,23,42,0.06);
+}
+
+.spec-badges li::before{
+  content:"";
+  position:absolute;
+  left:0.6rem;
+  top:50%;
+  width:7px;
+  height:7px;
+  border-radius:999px;
+  transform:translateY(-50%);
+  background:radial-gradient(circle at 30% 0%,#22c55e,#15803d);
+}
+
+.spec-note{
+  font-size:0.9rem;
+  color:#4b5563;
+  padding:0.7rem 0.85rem;
+  border-radius:12px;
+  border:1px dashed rgba(148,163,184,0.7);
+  background:#ffffff;
+}
+
+/* ================== APLICAȚII ================== */
+
+/* paragraful de sub titlu */
+.section-usecases-kituri .container > p{
+  max-width:44rem;
+}
+
+/* gradient pe textul îngroșat din titlu */
+
+/* listă de carduri cu bife */
+
+.usecase-list{
+  margin-top:1.8rem;
+  padding:0;
+  list-style:none;
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:1rem;
+}
+
+.usecase-list li{
+  display:flex;
+  align-items:center;
+  gap:0.7rem;
+  background:rgba(255,255,255,0.96);
+  border-radius:16px;
+  padding:0.8rem 1rem;
+  border:1px solid rgba(209,213,219,0.85);
+  box-shadow:
+    0 10px 24px rgba(15,23,42,0.08),
+    0 2px 6px rgba(15,23,42,0.04);
+}
+
+/* bifa verde, în stil CircularPack */
+.icon-check{
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  flex-shrink:0;
+  background: linear-gradient(135deg, #009c3b 0%, #16a34a 50%, #7ee08a 100%);
+  box-shadow:
+    0 2px 5px rgba(0,0,0,0.12),
+    0 0 0 4px rgba(22,163,74,0.18);
+  position:relative;
+}
+
+.icon-check::after{
+  content:"✓";
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  color:#ffffff;
+  font-size:14px;
+  font-weight:700;
+}
+
+/* label-ul aplicației */
+.uc-label{
+  font-size:1rem;
+  font-weight:650;
+  color:#111827;
+}
+
+/* responsive */
+
+@media (max-width:1024px){
+  .usecase-list{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (max-width:700px){
+  .usecase-list{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+
+/* ================== CTA FINAL KITURI ================== */
+
+.section-cta-kituri{
+  background:#ffffff;
+}
+
+.cta-kituri-inner{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1.5rem;
+  align-items:center;
+  justify-content:space-between;
+  border-radius:24px;
+  padding:1.9rem 1.9rem;
+  background:
+    radial-gradient(circle at 0 0, rgba(34,197,94,0.18), transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(234,179,8,0.18), transparent 60%),
+    #ffffff;
+  box-shadow:0 24px 48px rgba(15,23,42,0.18);
+  border:1px solid rgba(229,231,235,0.9);
+}
+
+.cta-kituri-text{
+  max-width: 100%;
+}
+
+
+.cta-kituri-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.9rem;
+}
+
+/* ================== RESPONSIVE ================== */
+
+@media (max-width:1024px){
+  .tipuri-grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .spec-grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .usecase-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (max-width:900px){
+  .usecase-grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+@media (max-width:640px){
+  .hero-kituri-metrics{
+    flex-direction:column;
+  }
+
+  .cta-kituri-inner{
+    padding:1.4rem 1.3rem;
+  }
+
+  .spec-badges{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+@media (max-width:480px){
+  .spec-row{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .hero-kituri-actions{
+    flex-direction:column;
+    align-items:stretch;
+  }
+}
+.timeline-step{
+  position:relative;
+  padding-left:0.8rem;
+  padding-bottom:1.7rem; /* spațiu MĂRIT între pași */
+}
+
+/* fundal premium cu gradient + spațiu între ele */
+.timeline-step::before{
+  content:"";
+  position:absolute;
+  
+  /* limite laterale identice */
+  left:-1.2rem;
+  right:-0.6rem;
+
+  /* aici micșorăm fundalul ca să lase spațiu dedesubt */
+  top:-0.2rem;
+  bottom:0.7rem; /* CREȘTE spațiul între ele 👈 cheia */
+
+  background:linear-gradient(
+      90deg,
+      rgba(0,156,59,0.08) 0%,
+      rgba(255,255,255,0.80) 40%,
+      rgba(213,156,43,0.08) 100%
+  );
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  border-radius:10px;
+  z-index:-1;
+}
+/* Stripe albastru-teal pentru cardul 4 */
+.stripe-blue{
+  background: linear-gradient(
+    180deg,
+    #3a8f8b 0%,
+    #5bbab5 100%
+  );
+}
+/* ===================== MICRO-DETALII — PREMIUM + BULINE FIX ===================== */
+/* acest bloc suprascrie stilurile anterioare pentru .spec-badges */
+
+.spec-badges{
+  list-style:none;
+  padding:0;
+  margin:0 0 1rem;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:0.8rem;
+}
+
+.spec-badges li{
+  position:relative;
+  font-size:0.9rem;
+  line-height:1.45;
+  padding:0.7rem 1rem 0.7rem 1.7rem; /* mai mult loc în stânga pentru bulină */
+  border-radius:16px;
+  overflow:hidden;
+
+  /* look premium (glass + pete de culoare foarte subtile) */
+  background:
+    radial-gradient(circle at 0% 0%, rgba(34,197,94,0.07), transparent 60%),
+    radial-gradient(circle at 120% 120%, rgba(234,179,8,0.08), transparent 60%),
+    rgba(255,255,255,0.96);
+
+  border:1px solid rgba(148,163,184,0.45);
+  box-shadow:
+    0 14px 30px rgba(15,23,42,0.12),
+    0 2px 8px rgba(15,23,42,0.06);
+
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+}
+
+/* BULINA VERDE – aliniată la primul rând de text, în fața lui */
+.spec-badges li::before{
+  content:"";
+  position:absolute;
+  left:0.8rem;      /* puțin înaintea textului */
+  top:0.9rem;       /* la nivelul primului rând, nu pe mijloc */
+  width:7px;
+  height:7px;
+  border-radius:999px;
+  background:radial-gradient(circle at 30% 0%, #22c55e, #15803d);
+}
+
+/* PATĂ DE CULOARE subtilă în colțul dreapta-sus */
+.spec-badges li::after{
+  content:"";
+  position:absolute;
+  right:-30%;
+  top:-40%;
+  width:160%;
+  height:140%;
+  background:radial-gradient(circle at 100% 0,
+    rgba(148,163,184,0.26) 0%,
+    transparent 60%
+  );
+  pointer-events:none;
+}
+
+/* mici variații de culoare pe fiecare rând (foarte discrete) */
+.spec-badges li:nth-child(2)::after{
+  background:radial-gradient(circle at 100% 0,
+    rgba(34,197,94,0.20) 0%,
+    transparent 60%
+  );
+}
+.spec-badges li:nth-child(3)::after{
+  background:radial-gradient(circle at 100% 0,
+    rgba(234,179,8,0.20) 0%,
+    transparent 60%
+  );
+}
+.spec-badges li:nth-child(4)::after{
+  background:radial-gradient(circle at 100% 0,
+    rgba(56,189,248,0.20) 0%,
+    transparent 60%
+  );
+}
+.spec-badges li:nth-child(5)::after{
+  background:radial-gradient(circle at 100% 0,
+    rgba(147,197,253,0.22) 0%,
+    transparent 60%
+  );
+}
+
+/* text clar, ușor bold-uit */
+.spec-badges li,
+.spec-badges li span{
+  color:#0f172a;
+  font-weight:500;
+}
+
+/* Responsiv – o coloană pe mobil */
+@media (max-width:640px){
+  .spec-badges{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+/* BULINA VERDE – aliniată la primul rând de text */
+.spec-badges li::before{
+  content:"";
+  position:absolute;
+  left:0.8rem;
+  top:1.30rem; /* poziția corectă ca să fie lângă primul rând */
+  width:7px;
+  height:7px;
+  border-radius:999px;
+  background:radial-gradient(circle at 30% 0%, #22c55e, #15803d);
+}
+/* Coboară DOAR tag-urile fără să afecteze imaginea */
+.hero-kituri-pills{
+  position: relative;
+  transform: translateY(16px); /* ajustează: 8px, 10px, 14px, 20px etc */
+}
+/* ================== TIMELINE – CARDURI COLORATE ================== */
+/* suprascrie vechile stiluri pentru timeline-step */
+
+.timeline-step{
+  position:relative;
+  padding:0.85rem 1rem 0.85rem 1.9rem; /* loc pentru bulină + text */
+  margin:0 0 0.8rem;
+  border-radius:14px;
+  overflow:visible;
+
+  /* umbră fină, premium */
+  box-shadow:
+    0 12px 26px rgba(15,23,42,0.08),
+    0 2px 6px rgba(15,23,42,0.04);
+  border:1px solid rgba(209,213,219,0.8);
+}
+
+/* scoatem vechiul fundal pe ::before ca să nu mai încurce */
+.timeline-step::before{
+  content:none !important;
+}
+
+/* CULOARE A – pasul 1 și 3: verde deschis */
+.timeline-step:nth-child(1),
+.timeline-step:nth-child(3){
+  background:linear-gradient(
+    135deg,
+    rgba(240,253,244,0.96) 0%,
+    rgba(224,242,254,0.96) 100%
+  );
+}
+
+/* CULOARE B – pasul 2 și 4: auriu cald */
+.timeline-step:nth-child(2),
+.timeline-step:nth-child(4){
+  background:linear-gradient(
+    135deg,
+    rgba(255,251,235,0.96) 0%,
+    rgba(254,242,242,0.96) 100%
+  );
+}
+
+/* bulina rămâne peste fond */
+.timeline-badge{
+  z-index:1;
+}
+
+/* textul din timeline – mic tweak să arate bine pe card */
+.timeline-body h3{
+  font-size:1.02rem;
+  margin-bottom:0.35rem;
+}
+.timeline-body p{
+  font-size:0.96rem;
+  color:#111827;
+}
+/* ===== HERO METRICS – GRID PERFECT SUB IMAGINE ===== */
+@media (min-width: 901px){
+
+  /* container = fix cât imaginea (max 480px) */
+  .hero-kituri-metrics{
+    display: grid;
+    grid-template-columns: 1fr 1fr;   /* 2 coloane egale sus */
+    grid-template-rows: auto auto;    /* rând 1 = 2 carduri, rând 2 = unul singur */
+    grid-template-areas:
+      "c1 c2"
+      "c3 c3";                        /* cardul 3 pe tot rândul */
+    max-width: 480px;                 /* identic cu sliderul */
+    margin-top: 0.8rem;
+    gap: 0.8rem;
+  }
+
+  .hero-kituri-metrics .metric:nth-child(1){
+    grid-area: c1;
+  }
+  .hero-kituri-metrics .metric:nth-child(2){
+    grid-area: c2;
+  }
+  .hero-kituri-metrics .metric:nth-child(3){
+    grid-area: c3;
+    text-align: center;               /* text pe mijloc */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;          /* centrare verticală */
+  }
+}
+/* ===== MUTĂ GRIDUL DE CARDURI COMPLET ÎN DREAPTA SUB IMAGINE ===== */
+@media (min-width: 901px){
+  .hero-kituri-metrics{
+    margin-left: auto;   /* împinge tot gridul la dreapta */
+  }
+}
+/* ===== AJUSTARE FINĂ – MUTĂ CARDURILE FOARTE PUȚIN ÎN STÂNGA ===== */
+@media (min-width: 901px){
+  .hero-kituri-metrics{
+    margin-right: 8px;   /* ajustează 4px / 6px / 10px după preferință */
+  }
+}
+/* ==== HERO KITURI – APROPIERE BUTOANE DE TEXT (DOAR DESKTOP) ==== */
+@media (min-width: 901px){
+  /* micșorăm distanța între rândul cu text/imagine și rândul cu butoane+carduri */
+  .hero-kituri-inner{
+    row-gap: 0.35rem;     /* înainte era ~1.2rem */
+  }
+
+  /* butoanele chiar sub text */
+  .hero-kituri-actions{
+    margin-top: 0 !important;
+  }
+
+  /* cardurile rămân un pic mai jos sub imagine, nu chiar lipite */
+  .hero-kituri-metrics{
+    margin-top: 0.6rem !important;
+  }
+}
+/* ===== FIX FINAL HERO KITURI – APROPIERE BUTOANE DE TEXT ===== */
+@media (min-width: 901px){
+  /* scoatem spațiul de sub paragraful lead */
+  .hero-kituri-text .lead{
+    margin-top: 0 !important;
+    margin-bottom: 0.1rem !important;   /* foarte aproape de butoane */
+  }
+
+  /* butoanele nu mai au niciun margin sus */
+  .hero-kituri-actions{
+    margin-top: 0 !important;
+  }
+
+  /* dacă există margin pe .btn, îl anulăm în HERO */
+  .hero-kituri-actions .btn{
+    margin-top: 0 !important;
+  }
+
+  /* micșorăm și spațiul dintre rândul cu text și rândul cu butoane+carduri */
+  .hero-kituri-inner{
+    row-gap: 0.15rem !important;
+  }
+}
+/* ===== FIX HARD – BUTOANE LIPITE DE TEXT PE DESKTOP ===== */
+@media (min-width: 901px){
+  /* fără spațiu între rândurile grilei */
+  .hero-kituri-inner{
+    row-gap: 0 !important;
+  }
+
+  /* tragem butoanele în sus cu margin negativ */
+  .hero-kituri-actions{
+    margin-top: -2.0rem !important;  /* dacă ți se pare prea mult, încearcă -0.4rem */
+  }
+}
+/* ===== MICRO-AJUSTARE – MUTĂ BUTOANELE UȘOR ÎN STÂNGA ===== */
+@media (min-width: 901px){
+  .hero-kituri-actions{
+    margin-left: -5px !important;  /* ajustează  -4px / -8px după cum îți place */
+  }
+}

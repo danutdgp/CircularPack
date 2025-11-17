@@ -184,26 +184,42 @@
 .hero-rame-slider img.active{
   opacity:1;
 }
+/* Panel alb pentru textul HERO pe telefon (pagina rame-pliabile) */
+@media (max-width: 900px){
+  .hero-rame-text{
+    position: relative;
+  }
 
-/* Panel alb sub text DOAR pe telefon (portret + landscape) */
-@media (max-width: 900px) {
-  .hero-rame-text {
+  .hero-rame-text::before{
+    content: "";
+    position: absolute;
+    inset: -0.8rem; /* halo în jurul textului, nu afectează layout-ul */
     background: linear-gradient(90deg, rgba(255,255,255,0.97), rgba(255,255,255,0.90));
-    padding: 1.1rem 1.3rem;
     border-radius: 16px;
     box-shadow: 0 10px 28px rgba(0,0,0,0.12);
     backdrop-filter: blur(4px);
+    z-index: -1; /* stă sub text */
   }
 }
-@media (orientation: landscape) and (max-height: 600px) {
-  .hero-rame-text {
+
+/* Același efect și pentru modul landscape cu ecran mic */
+@media (orientation: landscape) and (max-height: 600px){
+  .hero-rame-text{
+    position: relative;
+  }
+
+  .hero-rame-text::before{
+    content: "";
+    position: absolute;
+    inset: -0.8rem;
     background: linear-gradient(90deg, rgba(255,255,255,0.97), rgba(255,255,255,0.90));
-    padding: 1.1rem 1.3rem;
     border-radius: 16px;
     box-shadow: 0 10px 28px rgba(0,0,0,0.12);
     backdrop-filter: blur(4px);
+    z-index: -1;
   }
 }
+
 
 /* Mobil – ordinea: text → imagine → butoane + bullets */
 @media (max-width:900px){
