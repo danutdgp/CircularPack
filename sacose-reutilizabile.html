@@ -1,17 +1,71 @@
-<!doctype html>
-<html lang="ro" class="no-js">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- TITLU + DESCRIPTION (SEO) -->
   <title>Sacoșe reutilizabile – distribuție, retail & click & collect | CircularPack</title>
   <meta name="description" content="Sacoșe reutilizabile de la CircularPack – soluții refolosibile pentru distribuție, magazine fizice, click & collect și fluxuri interne. Sacoșe robuste, lavabile, personalizabile cu logo și gândite pentru sute de cicluri de utilizare." />
-  <meta name="robots" content="index,follow" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <meta name="theme-color" content="#0ea35e" />
+  <meta name="author" content="CircularPack" />
+
+  <!-- CANONICAL -->
   <link rel="canonical" href="https://www.circularpack.ro/sacose-reutilizabile.html" />
 
+  <!-- FAVICON / LOGO (folosește fișierele din /assets) -->
+  <link rel="shortcut icon" href="assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/site.webmanifest" />
+  <meta name="apple-mobile-web-app-title" content="CircularPack" />
+  <meta name="application-name" content="CircularPack" />
+
+  <!-- Open Graph / Twitter pentru pagina de sacoșe -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ro_RO" />
+  <meta property="og:site_name" content="CircularPack" />
+  <meta property="og:title" content="Sacoșe reutilizabile – distribuție, retail & click & collect" />
+  <meta property="og:description" content="Sacoșe reutilizabile pentru distribuție, retail și click & collect – soluții robuste, lavabile, personalizabile, gândite pentru sute de cicluri de utilizare." />
+  <meta property="og:url" content="https://www.circularpack.ro/sacose-reutilizabile.html" />
+  <meta property="og:image" content="https://www.circularpack.ro/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Sacoșe reutilizabile CircularPack" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sacoșe reutilizabile – distribuție, retail & click & collect" />
+  <meta name="twitter:description" content="Sacoșe reutilizabile robuste și lavabile, pentru fluxuri interne, magazine fizice și click & collect." />
+
+  <!-- Structured Data: CollectionPage pentru sacoșe reutilizabile -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "url": "https://www.circularpack.ro/sacose-reutilizabile.html",
+    "name": "Sacoșe reutilizabile – CircularPack",
+    "description": "Sacoșe reutilizabile pentru distribuție, retail, click & collect și fluxuri interne – soluții robuste, lavabile și personalizabile.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "CircularPack",
+      "url": "https://www.circularpack.ro/"
+    },
+    "about": {
+      "@type": "Product",
+      "name": "Sacoșe reutilizabile",
+      "brand": {
+        "@type": "Brand",
+        "name": "CircularPack"
+      },
+      "category": "Ambalaje reutilizabile"
+    }
+  }
+  </script>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="sacose-reutilizabile.css" />
 </head>
+
 <body>
   <a class="skip-link" href="#main">Sari la conținut</a>
 
@@ -147,7 +201,6 @@
           <span class="logo-circular">Circular</span><span class="logo-pack">PACK</span>
           pentru scenarii diferite
         </h2>
-
 
         <div class="tipuri-sacose-grid">
           <article class="tip-sacosa">
@@ -416,7 +469,7 @@
 
   <!-- Slider HERO imagini sacoșe -->
   <script>
-    (function () {
+    document.addEventListener('DOMContentLoaded', function () {
       var sacoseImgs = document.querySelectorAll('#sacoseSlider img');
       var sacoseIdx = 0;
 
@@ -427,11 +480,11 @@
           sacoseImgs[sacoseIdx].classList.add('active');
         }, 3200);
       }
-    })();
+    });
   </script>
 
   <!-- JS meniu & scroll-fade (ca la celelalte pagini) -->
- <script>
+  <script>
   (function () {
     document.documentElement.classList.remove('no-js');
 
@@ -499,7 +552,7 @@
       });
     }
   })();
-</script>
+  </script>
 
 </body>
 </html>

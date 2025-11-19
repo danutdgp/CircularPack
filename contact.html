@@ -1,17 +1,71 @@
-<!doctype html>
-<html lang="ro" class="no-js">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- TITLU + DESCRIPTION (SEO) -->
   <title>Contact – CircularPack</title>
   <meta name="description" content="Contactează CircularPack pentru rame pliabile, kituri de carton, paleți de plastic și sacoșe reutilizabile. Completează formularul și revenim cu o propunere clară, adaptată fluxului tău logistic." />
-  <meta name="robots" content="index,follow" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <meta name="theme-color" content="#0ea35e" />
+  <meta name="author" content="CircularPack" />
+
+  <!-- CANONICAL -->
   <link rel="canonical" href="https://www.circularpack.ro/contact.html" />
 
+  <!-- FAVICON / LOGO (folosește fișierele din /assets) -->
+  <link rel="shortcut icon" href="assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/site.webmanifest" />
+  <meta name="apple-mobile-web-app-title" content="CircularPack" />
+  <meta name="application-name" content="CircularPack" />
+
+  <!-- Open Graph / Twitter specifice paginii de contact -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ro_RO" />
+  <meta property="og:site_name" content="CircularPack" />
+  <meta property="og:title" content="Contact – CircularPack" />
+  <meta property="og:description" content="Scrie-ne despre fluxul tău logistic și îți propunem soluții de ambalaje reutilizabile: rame pliabile, kituri carton, paleți de plastic și sacoșe reutilizabile." />
+  <meta property="og:url" content="https://www.circularpack.ro/contact.html" />
+  <meta property="og:image" content="https://www.circularpack.ro/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Ambalaje reutilizabile CircularPack" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact – CircularPack" />
+  <meta name="twitter:description" content="Trimite-ne un mesaj despre proiectul tău logistic și îți răspundem cu o propunere de ambalaje reutilizabile." />
+
+  <!-- STRUCTURED DATA: ContactPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "url": "https://www.circularpack.ro/contact.html",
+    "name": "Contact CircularPack",
+    "description": "Pagină de contact CircularPack pentru soluții de ambalare reutilizabile.",
+    "about": {
+      "@type": "Organization",
+      "name": "CircularPack",
+      "url": "https://www.circularpack.ro/",
+      "logo": "https://www.circularpack.ro/assets/apple-touch-icon.png",
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "telephone": "+40-765-709-384",
+        "email": "contact@circularpack.ro",
+        "areaServed": "RO",
+        "availableLanguage": ["ro"]
+      }]
+    }
+  }
+  </script>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="contact.css" />
 </head>
+
 <body>
   <a class="skip-link" href="#main">Sari la conținut</a>
 
@@ -213,8 +267,7 @@
             <!-- buton + notă -->
             <div class="contact-actions contact-actions--full">
               <button type="submit" class="btn btn-primary">Trimite mesajul</button>
-              <p class="contact-footnote">  
-              </p>
+              <p class="contact-footnote"></p>
             </div>
           </form>
         </div>
@@ -309,7 +362,7 @@
   </footer>
 
   <!-- JS meniu & scroll-fade – ca în sacose-reutilizabile (fără slider) -->
-<script>
+  <script>
   (function () {
     document.documentElement.classList.remove('no-js');
 
@@ -329,7 +382,7 @@
     if (btn && nav) {
       // click pe butonul de meniu
       btn.addEventListener('click', function (e) {
-        e.stopPropagation(); // nu lăsăm click-ul să ajungă la document
+        e.stopPropagation();
         var isOpen = nav.classList.contains('open');
         setMenu(!isOpen);
       });
@@ -377,7 +430,7 @@
       });
     }
   })();
-</script>
+  </script>
 
 </body>
 </html>
