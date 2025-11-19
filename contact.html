@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="ro" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact – CircularPack</title>
+  <meta name="description" content="Contactează CircularPack pentru rame pliabile, kituri de carton, paleți de plastic și sacoșe reutilizabile. Completează formularul și revenim cu o propunere clară, adaptată fluxului tău logistic." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0ea35e" />
+  <link rel="canonical" href="https://www.circularpack.ro/contact.html" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="contact.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Sari la conținut</a>
+
+  <!-- HEADER – identic ca structură cu sacose-reutilizabile -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="CircularPack – acasă">
+        <img class="brand-logo" src="poze/logo.png" width="46" height="46" alt="Logo CircularPack" decoding="async" />
+        <span class="brand-name">
+          <span class="circular-text">Circular</span><span class="pack-text">PACK</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Deschide meniul">
+        <span class="nav-toggle-box" aria-hidden="true"></span>
+        <span class="nav-toggle-box" aria-hidden="true"></span>
+        <span class="nav-toggle-box" aria-hidden="true"></span>
+      </button>
+
+      <nav id="primaryNav" class="primary-nav" aria-label="Navigație principală">
+        <ul>
+          <li><a href="index.html">Acasă</a></li>
+          <li><a href="rame-pliabile.html">Rame Pliabile</a></li>
+          <li><a href="kituri-carton.html">Kituri carton</a></li>
+          <li><a href="paleti-plastic.html">Paleți de plastic</a></li>
+          <li><a href="sacose-reutilizabile.html">Sacoșe reutilizabile</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================= HERO CONTACT – TEXT STÂNGA + FORMULAR DREAPTA ================= -->
+    <section class="hero hero-contact section-pad">
+      <div class="container hero-contact-inner">
+
+        <!-- TEXT STÂNGA -->
+        <div class="hero-copy hero-contact-text reveal from-left">
+          <p class="section-kicker">Contact CircularPack</p>
+
+          <h1 class="hero-title">
+            Hai să discutăm despre
+            <span class="highlight-green">ambalaje reutilizabile</span>
+            potrivite pentru fluxul tău
+          </h1>
+
+          <p class="lead">
+            Spune-ne ce fel de marfă muți, ce tip de paleți folosești și ce vrei să
+            îmbunătățești, iar noi îți răspundem cu o propunere clară, ușor de implementat.
+          </p>
+
+          <!-- CARDURI META -->
+          <ul class="hero-contact-meta">
+            <li>
+              <span class="meta-label">Email</span>
+              <a href="mailto:contact@circularpack.ro">contact@circularpack.ro</a>
+            </li>
+            <li>
+              <span class="meta-label">Telefon</span>
+              <a href="tel:+40765709384">+40 765 709 384</a>
+            </li>
+            <li>
+              <span class="meta-label">Program</span>
+              <span>Luni – Vineri, 09:00 – 17:00</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- FORMULAR DREAPTA – GRID 2 COL, SELECT-URI PREMIUM -->
+        <div class="contact-form-card contact-form-card-hero reveal from-right">
+          <h2>Trimite-ne un mesaj</h2>
+          <p class="muted contact-form-lead">
+            Completează câmpurile esențiale și revenim cu o propunere adaptată
+            volumelor, rutelor și tipului de produse.
+          </p>
+
+          <form
+            class="contact-form"
+            action="https://formsubmit.co/EMAILUL_TAU@DOMENIU.RO"
+            method="POST"
+          >
+            <!-- Config FormSubmit -->
+            <input type="hidden" name="_next" value="https://www.circularpack.ro/multumim.html">
+            <input type="hidden" name="_subject" value="Mesaj nou de pe CircularPack">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <!-- Honeypot antispam -->
+            <input type="text" name="_honey" style="display:none">
+
+            <!-- rând 1 -->
+            <div class="contact-field contact-field--half">
+              <label for="nume">Nume complet *</label>
+              <input
+                type="text"
+                id="nume"
+                name="Nume"
+                required
+                autocomplete="name"
+                placeholder="Ex: Andrei Popescu"
+              >
+            </div>
+
+            <div class="contact-field contact-field--half">
+              <label for="companie">Companie</label>
+              <input
+                type="text"
+                id="companie"
+                name="Companie"
+                autocomplete="organization"
+                placeholder="Ex: Logistic Solutions SRL"
+              >
+            </div>
+
+            <!-- rând 2 -->
+            <div class="contact-field contact-field--half">
+              <label for="email">Adresă de email *</label>
+              <input
+                type="email"
+                id="email"
+                name="Email"
+                required
+                autocomplete="email"
+                placeholder="nume@companie.ro"
+              >
+            </div>
+
+            <div class="contact-field contact-field--half">
+              <label for="telefon">Telefon</label>
+              <input
+                type="tel"
+                id="telefon"
+                name="Telefon"
+                autocomplete="tel"
+                placeholder="Ex: +40 7xx xxx xxx"
+              >
+            </div>
+
+            <!-- rând 3 – select tip soluție -->
+            <div class="contact-field contact-field--full">
+              <label for="tip-solutie">Ce tip de soluții te interesează? *</label>
+              <select id="tip-solutie" name="Tip soluție" required>
+                <option value="">Selectează tipul de soluție</option>
+                <option value="Rame pliabile">Rame pliabile &amp; capace</option>
+                <option value="Kituri carton">Kituri de carton pe palet</option>
+                <option value="Paleti plastic">Paleți de plastic</option>
+                <option value="Sacose reutilizabile">Sacoșe reutilizabile</option>
+                <option value="Nu sunt sigur">Nu sunt sigur, am nevoie de consultanță</option>
+              </select>
+              <p class="contact-help">
+                Poți detalia în câmpul de mesaj dacă ai în vedere mai multe tipuri de soluții.
+              </p>
+            </div>
+
+            <!-- rând 4 – volume & timp -->
+            <div class="contact-field contact-field--half">
+              <label for="volum">Volum estimat / lună</label>
+              <select id="volum" name="Volum estimat">
+                <option value="">Selectează o estimare</option>
+                <option value="Sub 200 unități/lună">Sub 200 unități/lună</option>
+                <option value="200 - 500 unități/lună">200 – 500 unități/lună</option>
+                <option value="500 - 1.000 unități/lună">500 – 1.000 unități/lună</option>
+                <option value="Peste 1.000 unități/lună">Peste 1.000 unități/lună</option>
+                <option value="Nu știu încă">Nu știu încă</option>
+              </select>
+            </div>
+
+            <div class="contact-field contact-field--half">
+              <label for="timp">Orizont de timp</label>
+              <select id="timp" name="Orizont de timp">
+                <option value="">Selectează</option>
+                <option value="În 30 de zile">În 30 de zile</option>
+                <option value="1 - 3 luni">1 – 3 luni</option>
+                <option value="Peste 3 luni">Peste 3 luni</option>
+                <option value="Doar informativ">Doar informativ deocamdată</option>
+              </select>
+            </div>
+
+            <!-- rând 5 – mesaj -->
+            <div class="contact-field contact-field--full">
+              <label for="mesaj">Descrie-ne pe scurt proiectul sau nevoia ta *</label>
+              <textarea
+                id="mesaj"
+                name="Mesaj"
+                rows="5"
+                required
+                placeholder="Ex: Căutăm o soluție de rame pliabile pentru transport intern între depozit și fabrică, aprox. 600 de paleți/lună..."
+              ></textarea>
+            </div>
+
+            <!-- consimțăminte -->
+            <label class="contact-consent contact-consent--full">
+              <input type="checkbox" name="Acord prelucrare date" required>
+              <span>
+                Sunt de acord ca datele mele să fie folosite pentru a fi contactat în legătură cu solicitarea trimisă. *
+              </span>
+            </label>
+
+            <!-- buton + notă -->
+            <div class="contact-actions contact-actions--full">
+              <button type="submit" class="btn btn-primary">Trimite mesajul</button>
+              <p class="contact-footnote">  
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER – aliniat cu pagina de sacoșe -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container footer-top-inner">
+        <a class="brand brand-footer" href="index.html" aria-label="Circular PACK">
+          <img class="brand-logo" src="poze/logo.png" width="36" height="36" alt="" />
+          <span class="brand-name">
+            <span class="circular-text">Circular</span> <span class="pack-text">PACK</span>
+          </span>
+        </a>
+        <p class="footer-tagline">
+          Ambalaje reutilizabile pentru lanțuri logistice circulare – rame pliabile &amp; capace,
+          kituri carton pe palet, paleți de plastic și sacoșe reutilizabile.
+        </p>
+      </div>
+    </div>
+
+    <div class="container footer-grid">
+      <div>
+        <h4>Contact</h4>
+        <ul class="list">
+          <li>
+            <a href="mailto:contact@circularpack.ro">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path fill="#0ea35e" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"/>
+              </svg>
+              contact@circularpack.ro
+            </a>
+          </li>
+          <li>
+            <a class="phone-link" href="tel:+40765709384">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path fill="#0ea35e" d="M6.6 10.8a11.05 11.05 0 0 0 6.6 6.6l1.5-1.5a1 1 0 0 1 1-.25c1.1.36 2.3.55 3.3.55a1 1 0 0 1 1 1v3.2a1 1 0 0 1-1 1A17.94 17.94 0 0 1 2 6a1 1 0 0 1 1-1h3.2a1 1 0 0 1 1 1c0 1.05.19 2.19.55 3.3a1 1 0 0 1-.25 1l-1.9 1.5Z"/>
+              </svg>
+              +40 765 709 384
+            </a>
+          </li>
+          <li>
+            <a class="whatsapp-link" href="https://wa.me/40765709384" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path fill="#25D366" d="M12 2a9.9 9.9 0 0 0-8.4 15.3L2 22l4.9-1.5A10 10 0 1 0 12 2Zm5.5 14.3c-.2.6-1.1 1-1.7 1.1-.5.1-1.1.1-1.8-.1-3.1-1-5.1-3.6-5.3-3.8-.2-.3-1.3-1.7-1.3-3.2 0-1.5.8-2.2 1.1-2.5.3-.3.7-.4 1-.4h.7c.2 0 .5 0 .7.6.3.7.9 2.4 1 2.6.1.2.1.4 0 .6-.1.2-.1.3-.3.6-.1.2-.3.5-.5.7-.2.3-.4.5-.2.8.2.3.9 1.4 2.2 2.2 1.5 1 2.7 1.2 3.1 1.3.3 0 .6 0 .8-.1.3-.2 1.3-.6 1.5-.8.2-.1.4-.2.6-.1.1.1.1.6 0 1.1Z"/>
+              </svg>
+              WhatsApp
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Pagini</h4>
+        <ul class="list">
+          <li><a href="rame-pliabile.html">Rame Pliabile</a></li>
+          <li><a href="kituri-carton.html">Kituri carton</a></li>
+          <li><a href="paleti-plastic.html">Paleți de plastic</a></li>
+          <li><a href="sacose-reutilizabile.html">Sacoșe reutilizabile</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Social</h4>
+        <div class="social">
+          <a class="social-icon" href="https://www.facebook.com/circularpack" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path fill="currentColor" d="M13.5 9H16V6h-2.5C11.6 6 10 7.6 10 9.5V11H8v3h2v7h3v-7h2.1l.9-3H13v-1.5c0-.3.2-.5.5-.5Z"/>
+            </svg>
+          </a>
+          <a class="social-icon" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path fill="currentColor" d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7Zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10Zm-5 3.5A5.5 5.5 0 1 0 17.5 13 5.5 5.5 0 0 0 12 7.5Zm0 2A3.5 3.5 0 1 1 8.5 13 3.5 3.5 0 0 1 12 9.5ZM17.5 5a1 1 0 1 0 1 1 1 1 0 0 0-1-1Z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footnote">
+      <small>© <span id="year"></span> Circular PACK. Toate drepturile rezervate.</small>
+      <nav aria-label="Legal">
+        <a href="#" rel="nofollow">Politica de confidențialitate</a>
+        <span aria-hidden="true">•</span>
+        <a href="#" rel="nofollow">Termeni și condiții</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- JS meniu & scroll-fade – ca în sacose-reutilizabile (fără slider) -->
+<script>
+  (function () {
+    document.documentElement.classList.remove('no-js');
+
+    var yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    var btn = document.getElementById('navToggle');
+    var nav = document.getElementById('primaryNav');
+
+    function setMenu(open) {
+      if (!btn || !nav) return;
+      btn.setAttribute('aria-expanded', String(open));
+      nav.classList.toggle('open', open);
+      document.body.classList.toggle('no-scroll', open);
+    }
+
+    if (btn && nav) {
+      // click pe butonul de meniu
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation(); // nu lăsăm click-ul să ajungă la document
+        var isOpen = nav.classList.contains('open');
+        setMenu(!isOpen);
+      });
+
+      // click oriunde în pagină => închide meniul, dacă e deschis
+      document.addEventListener('click', function (e) {
+        if (!nav.classList.contains('open')) return;
+        if (nav.contains(e.target) || btn.contains(e.target)) return;
+        setMenu(false);
+      });
+
+      // când dai click pe un link din meniu, se închide automat
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          setMenu(false);
+        });
+      });
+    }
+
+    // shadow pe header la scroll
+    var header = document.querySelector('.site-header');
+    window.addEventListener('scroll', function () {
+      var sy = window.scrollY || document.documentElement.scrollTop;
+      if (header) header.classList.toggle('scrolled', sy > 4);
+    }, {passive: true});
+
+    // animații .reveal (dacă nu e prefers-reduced-motion)
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        io.observe(el);
+      });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        el.classList.add('is-visible');
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>

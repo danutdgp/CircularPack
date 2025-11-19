@@ -457,59 +457,75 @@
   </script>
 
   <!-- JS meniu & scroll-fade -->
-  <script>
-    (function () {
-      document.documentElement.classList.remove('no-js');
-      var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+<script>
+  (function () {
+    document.documentElement.classList.remove('no-js');
 
-      // Meniu mobil
-      var btn = document.getElementById('navToggle');
-      var nav = document.getElementById('primaryNav');
-      if (btn && nav) {
-        btn.addEventListener('click', function () {
-          var expanded = this.getAttribute('aria-expanded') === 'true';
-          this.setAttribute('aria-expanded', String(!expanded));
-          nav.classList.toggle('open');
-          document.body.classList.toggle('no-scroll', !expanded);
+    var yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    var btn = document.getElementById('navToggle');
+    var nav = document.getElementById('primaryNav');
+
+    function setMenu(open) {
+      if (!btn || !nav) return;
+      btn.setAttribute('aria-expanded', String(open));
+      nav.classList.toggle('open', open);
+      document.body.classList.toggle('no-scroll', open);
+    }
+
+    if (btn && nav) {
+      // click pe butonul de meniu
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation(); // nu lăsăm click-ul să ajungă la document
+        var isOpen = nav.classList.contains('open');
+        setMenu(!isOpen);
+      });
+
+      // click oriunde în pagină => închide meniul, dacă e deschis
+      document.addEventListener('click', function (e) {
+        if (!nav.classList.contains('open')) return;
+        if (nav.contains(e.target) || btn.contains(e.target)) return;
+        setMenu(false);
+      });
+
+      // când dai click pe un link din meniu, se închide automat
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          setMenu(false);
         });
-        nav.querySelectorAll('a').forEach(function (a) {
-          a.addEventListener('click', function () {
-            btn.setAttribute('aria-expanded', 'false');
-            nav.classList.remove('open');
-            document.body.classList.remove('no-scroll');
-          });
+      });
+    }
+
+    // shadow pe header la scroll
+    var header = document.querySelector('.site-header');
+    window.addEventListener('scroll', function () {
+      var sy = window.scrollY || document.documentElement.scrollTop;
+      if (header) header.classList.toggle('scrolled', sy > 4);
+    }, {passive: true});
+
+    // animații .reveal (dacă nu e prefers-reduced-motion)
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
         });
-      }
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
 
-      // Header shadow după scroll
-      var header = document.querySelector('.site-header');
-      window.addEventListener('scroll', function () {
-        var sy = window.scrollY || document.documentElement.scrollTop;
-        if (header) header.classList.toggle('scrolled', sy > 4);
-      }, {passive: true});
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        io.observe(el);
+      });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        el.classList.add('is-visible');
+      });
+    }
+  })();
+</script>
 
-      // Scroll-in: animații o singură dată
-      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (!prefersReduced && 'IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) {
-              e.target.classList.add('is-visible');
-              io.unobserve(e.target);
-            }
-          });
-        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
-
-        document.querySelectorAll('.reveal').forEach(function (el) {
-          io.observe(el);
-        });
-      } else {
-        document.querySelectorAll('.reveal').forEach(function (el) {
-          el.classList.add('is-visible');
-        });
-      }
-    })();
-  </script>
 </body>
 </html>

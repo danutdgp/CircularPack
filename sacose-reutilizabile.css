@@ -868,3 +868,26 @@
     0 14px 30px rgba(15,23,42,0.08),
     0 2px 8px rgba(15,23,42,0.04) !important;
 }
+/* =========================================================
+   FIX LANDSCAPE MIC – HERO SACOȘE
+   Scoatem margin-top-ul negativ DOAR pe ecrane cu înălțime mică.
+   Desktop-ul rămâne exact cum e.
+=========================================================*/
+@media (orientation: landscape) and (max-height: 600px){
+
+  /* anulăm margin-top-ul negativ de pe desktop */
+  .hero-sacose-actions{
+    margin-top: 0.6rem !important;  /* butoane imediat sub text, fără overlap */
+    margin-bottom: 0.9rem;
+  }
+
+  /* punem și un pic de spațiu între lead și butoane */
+  .hero-sacose-text .lead{
+    margin-bottom: 0.4rem !important;
+  }
+
+  /* un pic de aer între rândurile grid-ului */
+  .hero-sacose-inner{
+    row-gap: 0.6rem !important;
+  }
+}
